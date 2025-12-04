@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlaq3f3hiu07f"
-path="res://.godot/imported/godotwaka.png-adb2c19e1d4d1a14d637e62bffdb8d3d.ctex"
+uid="uid://cio25foejkikp"
+path="res://.godot/imported/backgroundDark.png-e4c260f0bf55205701147c97382bfb95.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://newAmazingLanternGame/images/godotwaka.png"
-dest_files=["res://.godot/imported/godotwaka.png-adb2c19e1d4d1a14d637e62bffdb8d3d.ctex"]
+source_file="res://images/backgroundDark.png"
+dest_files=["res://.godot/imported/backgroundDark.png-e4c260f0bf55205701147c97382bfb95.ctex"]
 
 [params]
 
