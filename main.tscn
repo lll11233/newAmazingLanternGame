@@ -1,9 +1,17 @@
-[gd_scene load_steps=8 format=4 uid="uid://kdsy8rxflcyw"]
+[gd_scene load_steps=11 format=4 uid="uid://kdsy8rxflcyw"]
 
 [ext_resource type="Texture2D" uid="uid://cio25foejkikp" path="res://assets/backgroundDark.png" id="1_1bvp3"]
 [ext_resource type="Script" uid="uid://cyjox8cpy8flt" path="res://player.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://dsyl5vf0alveb" path="res://assets/sylvieOG.png" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://dwoobmqkl1ykf" path="res://assets/Pixel Art Bricks.jpeg" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://cnn46xyu8rjyx" path="res://assets/lantern.png" id="6_272bh"]
+
+[sub_resource type="Gradient" id="Gradient_5vw27"]
+offsets = PackedFloat32Array(0.715, 0.996753)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kek77"]
+gradient = SubResource("Gradient_5vw27")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
 size = Vector2(29, 42)
@@ -35,19 +43,36 @@ mouse_filter = 2
 texture = ExtResource("1_1bvp3")
 stretch_mode = 1
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_left = -0.135
+anchor_top = -0.093
+anchor_right = -0.135
+anchor_bottom = -0.093
+offset_left = -205.48
+offset_top = -124.736
+offset_right = 220.52
+offset_bottom = 56.264
+texture = SubResource("GradientTexture1D_kek77")
+
+[node name="Sylvie" type="CharacterBody2D" parent="."]
+position = Vector2(-328, 7)
 script = ExtResource("1_h2yge")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sylvie"]
 position = Vector2(11.5, -29)
 shape = SubResource("RectangleShape2D_0xm2m")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
+[node name="Sprite2D" type="Sprite2D" parent="Sylvie"]
 position = Vector2(15.5, -26)
 scale = Vector2(1.64583, 1.33333)
 texture = ExtResource("1_ig7tw")
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Lantern" type="PointLight2D" parent="Sylvie"]
+position = Vector2(39, -26)
+texture = ExtResource("6_272bh")
+
+[node name="Camera2D" type="Camera2D" parent="Sylvie"]
 zoom = Vector2(1.5, 1.5)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
