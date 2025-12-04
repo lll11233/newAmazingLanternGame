@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://kdsy8rxflcyw"]
+[gd_scene load_steps=8 format=4 uid="uid://kdsy8rxflcyw"]
 
+[ext_resource type="Texture2D" uid="uid://cio25foejkikp" path="res://assets/backgroundDark.png" id="1_1bvp3"]
 [ext_resource type="Script" uid="uid://cyjox8cpy8flt" path="res://player.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://dsyl5vf0alveb" path="res://assets/sylvieOG.png" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://dwoobmqkl1ykf" path="res://assets/Pixel Art Bricks.jpeg" id="2_0xm2m"]
@@ -19,6 +20,21 @@ sources/1 = SubResource("TileSetAtlasSource_h2yge")
 
 [node name="Node" type="Node"]
 
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.587
+anchor_top = 0.092
+anchor_right = 0.587
+anchor_bottom = 0.092
+offset_left = -1058.22
+offset_top = -406.616
+offset_right = 1563.78
+offset_bottom = 673.384
+scale = Vector2(0.64, 0.52)
+mouse_filter = 2
+texture = ExtResource("1_1bvp3")
+stretch_mode = 1
+
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_h2yge")
 
@@ -32,8 +48,10 @@ scale = Vector2(1.64583, 1.33333)
 texture = ExtResource("1_ig7tw")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(1.5, 1.5)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-23, 5)
 scale = Vector2(0.1, 0.1)
-tile_map_data = PackedByteArray(0, 0, 5, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, 0, 20, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, 0, 36, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, 0, 245, 255, 3, 0, 1, 0, 0, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray("AAAFAAMAAQAAAAAAAAAUAAMAAQAAAAAAAAAkAAMAAQAAAAAAAAD1/wMAAQAAAAAAAAA0AAMAAQAAAAAAAABEAAMAAQAAAAAAAADl/wMAAQAAAAAAAADV/wMAAQAAAAAAAADF/wMAAQAAAAAAAAC1/wMAAQAAAAAAAACl/wMAAQAAAAAAAACV/wMAAQAAAAAAAACF/wMAAQAAAAAAAAB1/wMAAQAAAAAAAABl/wMAAQAAAAAAAABV/wMAAQAAAAAAAABF/wMAAQAAAAAAAAA1/wMAAQAAAAAAAAAl/wMAAQAAAAAAAAAl//P/AQAAAAAAAAAl/+P/AQAAAAAAAAAl/9P/AQAAAAAAAAAl/8P/AQAAAAAAAAAl/7P/AQAAAAAAAAAl/6P/AQAAAAAAAAAl/5P/AQAAAAAAAAAl/4P/AQAAAAAAAAA1/4P/AQAAAAAAAABF/4P/AQAAAAAAAABV/4P/AQAAAAAAAABl/4P/AQAAAAAAAAB1/4P/AQAAAAAAAACF/4P/AQAAAAAAAACV/4P/AQAAAAAAAACl/4P/AQAAAAAAAAC1/4P/AQAAAAAAAADF/4P/AQAAAAAAAADV/4P/AQAAAAAAAADl/4P/AQAAAAAAAAD1/4P/AQAAAAAAAAAFAIP/AQAAAAAAAAAVAIP/AQAAAAAAAAAlAIP/AQAAAAAAAAA1AIP/AQAAAAAAAABUAAMAAQAAAAAAAABUABMAAQAAAAAAAABEABMAAQAAAAAAAAA0ABMAAQAAAAAAAAAkABMAAQAAAAAAAAAUABMAAQAAAAAAAAAFABMAAQAAAAAAAAD2/xMAAQAAAAAAAADm/xMAAQAAAAAAAABkAAoAAQAAAAAAAAB0AAoAAQAAAAAAAACEAAoAAQAAAAAAAACUABIAAQAAAAAAAACkABIAAQAAAAAAAACzABIAAQAAAAAAAABkABMAAQAAAAAAAACEABMAAQAAAAAAAAB0ABMAAQAAAAAAAACUABMAAQAAAAAAAACkABMAAQAAAAAAAAC0ABMAAQAAAAAAAADW/xMAAQAAAAAAAAAl/xMAAQAAAAAAAAA1/xMAAQAAAAAAAABF/xMAAQAAAAAAAABV/xMAAQAAAAAAAABl/xMAAQAAAAAAAAB1/xMAAQAAAAAAAACF/xMAAQAAAAAAAACV/xMAAQAAAAAAAACl/xMAAQAAAAAAAAC1/xMAAQAAAAAAAADF/xMAAQAAAAAAAADV/xMAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_1bvp3")
