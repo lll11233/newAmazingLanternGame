@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://kdsy8rxflcyw"]
+
+[ext_resource type="Script" uid="uid://cyjox8cpy8flt" path="res://player.gd" id="1_h2yge"]
+[ext_resource type="Texture2D" uid="uid://dsyl5vf0alveb" path="res://assets/sylvieOG.png" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://dwoobmqkl1ykf" path="res://assets/Pixel Art Bricks.jpeg" id="2_0xm2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(29, 42)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2yge"]
+texture = ExtResource("2_0xm2m")
+0:0/size_in_atlas = Vector2i(16, 16)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-130.539, -131.583, 128.45, -121.14, 124.273, 125.318, -118.007, 135.761)
+
+[sub_resource type="TileSet" id="TileSet_1bvp3"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_h2yge")
+
+[node name="Node" type="Node"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(11.5, -29)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(15.5, -26)
+scale = Vector2(1.64583, 1.33333)
+texture = ExtResource("1_ig7tw")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(0.1, 0.1)
+tile_map_data = PackedByteArray(0, 0, 5, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, 0, 20, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, 0, 36, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, 0, 245, 255, 3, 0, 1, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_1bvp3")
