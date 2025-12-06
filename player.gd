@@ -1,6 +1,44 @@
 class_name playerSidescroller
 extends CharacterBody2D
 
+@onready var lantern = $LanternSprite
+var lantern_radius := 100
+var lantern_increase := 80
+
+# Reference to HUD node
+#@onready var hud = get_node("../CanvasLayer")  # adjust path to your HUD
+
+var max_hearts := 5
+var hearts:= max_hearts
+
+#
+#func _ready():
+	#hud.update_hearts()
+	#print("HUD ready with hearts: ", hud.hearts)
+
+#func process(delta):
+	#if Input.is_action_just_pressed("sacrificeHealth"):
+		#if hearts > 0:
+			#lantern.recharge(100)   # recharge lantern by 30 fuel
+			#hearts -= 1
+			#hud.hearts = hearts
+			#hud.update_hearts()
+#
+#func take_damage(amount: int):
+	#hearts -= amount
+	#hearts = clamp(hearts, 0, max_hearts)
+	#hud.update_hearts()
+	#
+#func _on_hit():
+	#hearts -= 1
+	#hearts = clamp(hearts, 0, max_hearts)
+	#hud.take_damage(1)  # Updates the heart display
+
+
+
+
+
+
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -14,6 +52,12 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
+	if Input.is_action_just_pressed("left"):
+		$Sprite2D.flip_h = true # Flip left
+	elif Input.is_action_just_pressed("right"):
+		$Sprite2D.flip_h = false # Flip left
+
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

@@ -1,20 +1,29 @@
-[gd_scene load_steps=11 format=4 uid="uid://kdsy8rxflcyw"]
+[gd_scene load_steps=15 format=4 uid="uid://kdsy8rxflcyw"]
 
 [ext_resource type="Texture2D" uid="uid://cio25foejkikp" path="res://assets/backgroundDark.png" id="1_1bvp3"]
 [ext_resource type="Script" uid="uid://cyjox8cpy8flt" path="res://player.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://dsyl5vf0alveb" path="res://assets/sylvieOG.png" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://dwoobmqkl1ykf" path="res://assets/Pixel Art Bricks.jpeg" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://bv08ywjkqk72n" path="res://canvas_layer.gd" id="2_272bh"]
+[ext_resource type="Script" uid="uid://d0rw3yigb4yxo" path="res://lantern_sprite.gd" id="5_7mycd"]
 [ext_resource type="Texture2D" uid="uid://cnn46xyu8rjyx" path="res://assets/lantern.png" id="6_272bh"]
 
-[sub_resource type="Gradient" id="Gradient_5vw27"]
-offsets = PackedFloat32Array(0.715, 0.996753)
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+[sub_resource type="Gradient" id="Gradient_lquwl"]
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_kek77"]
-gradient = SubResource("Gradient_5vw27")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7mycd"]
+gradient = SubResource("Gradient_lquwl")
+fill_to = Vector2(0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
 size = Vector2(29, 42)
+
+[sub_resource type="Gradient" id="Gradient_272bh"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5vw27"]
+gradient = SubResource("Gradient_272bh")
+width = 8
+height = 8
+fill_from = Vector2(0, 0.204268)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2yge"]
 texture = ExtResource("2_0xm2m")
@@ -53,10 +62,13 @@ offset_left = -205.48
 offset_top = -124.736
 offset_right = 220.52
 offset_bottom = 56.264
-texture = SubResource("GradientTexture1D_kek77")
+texture = SubResource("GradientTexture2D_7mycd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("2_272bh")
 
 [node name="Sylvie" type="CharacterBody2D" parent="."]
-position = Vector2(-328, 7)
+position = Vector2(-324, 6)
 script = ExtResource("1_h2yge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sylvie"]
@@ -68,12 +80,22 @@ position = Vector2(15.5, -26)
 scale = Vector2(1.64583, 1.33333)
 texture = ExtResource("1_ig7tw")
 
-[node name="Lantern" type="PointLight2D" parent="Sylvie"]
-position = Vector2(39, -26)
-texture = ExtResource("6_272bh")
-
 [node name="Camera2D" type="Camera2D" parent="Sylvie"]
 zoom = Vector2(1.5, 1.5)
+
+[node name="LanternSprite" type="Sprite2D" parent="Sylvie"]
+position = Vector2(34, -23)
+scale = Vector2(0.46875, 0.5)
+texture = ExtResource("6_272bh")
+script = ExtResource("5_7mycd")
+
+[node name="Light" type="PointLight2D" parent="Sylvie/LanternSprite"]
+position = Vector2(2.13336, -25)
+scale = Vector2(10.345, 7.05)
+color = Color(1, 1, 0.921569, 1)
+energy = 0.8
+texture = SubResource("GradientTexture2D_5vw27")
+texture_scale = 5.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-23, 5)
