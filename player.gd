@@ -29,8 +29,7 @@ var hearts:= max_hearts
 	#hearts = clamp(hearts, 0, max_hearts)
 	#hud.update_hearts()
 	#
-func _on_hit():
-	
+
 
 
 
@@ -67,5 +66,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func _on_hit_box_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+#func _on_hit_box_body_entered(body: Node2D):
+	#Global.lives_lost(1) 
+	
+	
