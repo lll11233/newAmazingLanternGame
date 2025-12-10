@@ -5,6 +5,10 @@ extends CharacterBody2D
 var lantern_radius := 100
 var lantern_increase := 80
 
+
+
+
+
 # Reference to HUD node
 #@onready var hud = get_node("../CanvasLayer")  # adjust path to your HUD
 
@@ -42,6 +46,7 @@ const JUMP_VELOCITY = -400.0
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
+	check_for_lava()
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -66,7 +71,25 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-#func _on_hit_box_body_entered(body: Node2D):
-	#Global.lives_lost(1) 
+#func _on_hit_box_body_entered(lava):
+	#Global.lives_lost(1) ## this aint working, why?
+	#
+func check_for_lava():
+	#for area in $HitBox.get_overlapping_areas():
+		##value here
+	for body in $HitBox.get_overlapping_bodies():
+		if body is TileMap:
+			var tilemap: TileMap = body
+			var local_pos = tilemap.to_local($HitBox.global_position)
+			var cell = tilemap.local_to_map(local_pos)
+			
+			var data = tilemap.get_cell_tile_data(0,cell)
+			
+			if data:
+				var tile_type = data.get_custom_data("type")
+				if tile_type == "_lava":
+					Global.lives_lost(1) ## this aint working, why?
+
+	
 	
 	

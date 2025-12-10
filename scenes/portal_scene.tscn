@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://2xdqj4nctfm5"]
+
+[ext_resource type="Script" uid="uid://cd7d2c21vbf2b" path="res://portal_scene.gd" id="1_m1pvu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfbii"]
+bg_color = Color(0.067417, 0.16355, 0.368549, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="portal_scene" type="CanvasLayer"]
+script = ExtResource("1_m1pvu")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 100.0
+offset_bottom = 50.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mfbii")
+
+[node name="portalButton" type="Button" parent="."]
+offset_left = 5.0
+offset_top = 14.0
+offset_right = 97.0
+offset_bottom = 36.0
+theme_override_font_sizes/font_size = 10
+text = "Press to continue"
+
+[connection signal="pressed" from="portalButton" to="." method="_on_portal_button_pressed"]

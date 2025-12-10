@@ -12,4 +12,4 @@ func load_hearts():
 	$HeartsEmpty.rect_size.x = (Global.max_lives - Global.lives)*32
 	$HeartsEmpty.rect_position.x = $HeartsFull.rect_position.x + $HeartsFull.rect_size.x * $HeartsFull.rect_scale.x
 	
-	
+	##hearts HUD doesnt work, why????
