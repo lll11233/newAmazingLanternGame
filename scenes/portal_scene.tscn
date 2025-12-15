@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://2xdqj4nctfm5"]
 
-[ext_resource type="Script" uid="uid://cd7d2c21vbf2b" path="res://portal_scene.gd" id="1_m1pvu"]
+[ext_resource type="Script" uid="uid://cd7d2c21vbf2b" path="res://scripts/portal_scene.gd" id="1_m1pvu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfbii"]
 bg_color = Color(0.067417, 0.16355, 0.368549, 1)
@@ -13,18 +13,22 @@ corner_radius_bottom_left = 10
 script = ExtResource("1_m1pvu")
 
 [node name="Panel" type="Panel" parent="."]
-offset_left = 1041.0
-offset_top = -67.0
-offset_right = 1141.0
-offset_bottom = -17.0
+anchors_preset = -1
+anchor_left = 0.903646
+anchor_top = -0.103395
+anchor_right = 0.990451
+anchor_bottom = -0.0262346
 theme_override_styles/panel = SubResource("StyleBoxFlat_mfbii")
+metadata/_edit_use_anchors_ = true
 
 [node name="portalButton" type="Button" parent="."]
-offset_left = 1046.0
-offset_top = -53.0
-offset_right = 1138.0
-offset_bottom = -31.0
+anchors_preset = -1
+anchor_left = 0.907986
+anchor_top = -0.0817901
+anchor_right = 0.987847
+anchor_bottom = -0.0478395
 theme_override_font_sizes/font_size = 10
 text = "Press to continue"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="portalButton" to="." method="_on_portal_button_pressed"]

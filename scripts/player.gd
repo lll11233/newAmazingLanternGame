@@ -53,11 +53,14 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		
+	elif Input.is_action_just_pressed("double_jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY * 2 
+		#to double jump, press D on keyboard
 	if Input.is_action_just_pressed("left"):
 		$Sprite2D.flip_h = true # Flip left
 	elif Input.is_action_just_pressed("right"):
 		$Sprite2D.flip_h = false # Flip left
+	
 
 
 	# Get the input direction and handle the movement/deceleration.
@@ -90,6 +93,5 @@ func check_for_lava():
 				if tile_type == "_lava":
 					Global.lives_lost(1) ## this aint working, why?
 
-	
 	
 	

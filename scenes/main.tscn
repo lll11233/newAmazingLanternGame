@@ -1,16 +1,16 @@
 [gd_scene load_steps=24 format=4 uid="uid://kdsy8rxflcyw"]
 
-[ext_resource type="Script" uid="uid://cd7d2c21vbf2b" path="res://portal_scene.gd" id="1_ya4ey"]
+[ext_resource type="Script" uid="uid://cd7d2c21vbf2b" path="res://scripts/portal_scene.gd" id="1_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://cio25foejkikp" path="res://assets/backgroundDark.png" id="2_eb6dy"]
-[ext_resource type="Script" uid="uid://cdnvu33f4ravg" path="res://hud.gd" id="3_trceg"]
+[ext_resource type="Script" uid="uid://cdnvu33f4ravg" path="res://scripts/hud.gd" id="3_trceg"]
 [ext_resource type="Texture2D" uid="uid://buua0aaybq5iq" path="res://assets/whiteheart.png" id="4_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://dwoobmqkl1ykf" path="res://assets/Pixel Art Bricks.jpeg" id="5_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://blxqhpgh6moca" path="res://assets/lava.jpeg" id="6_jbj1t"]
-[ext_resource type="Script" uid="uid://ca04f3lprryrs" path="res://lava.gd" id="7_muem4"]
-[ext_resource type="Script" uid="uid://cyjox8cpy8flt" path="res://player.gd" id="8_dp3eg"]
+[ext_resource type="Script" uid="uid://ca04f3lprryrs" path="res://scripts/lava.gd" id="7_muem4"]
+[ext_resource type="Script" uid="uid://cyjox8cpy8flt" path="res://scripts/player.gd" id="8_dp3eg"]
 [ext_resource type="Texture2D" uid="uid://dsyl5vf0alveb" path="res://assets/sylvieOG.png" id="9_0ld40"]
 [ext_resource type="Texture2D" uid="uid://cnn46xyu8rjyx" path="res://assets/lantern.png" id="10_gqmmt"]
-[ext_resource type="Script" uid="uid://d0rw3yigb4yxo" path="res://lantern_sprite.gd" id="11_yc10j"]
+[ext_resource type="Script" uid="uid://d0rw3yigb4yxo" path="res://scripts/lantern_sprite.gd" id="11_yc10j"]
 [ext_resource type="PackedScene" uid="uid://2xdqj4nctfm5" path="res://scenes/portal_scene.tscn" id="12_eb6dy"]
 
 [sub_resource type="Gradient" id="Gradient_lquwl"]
@@ -65,32 +65,28 @@ script = ExtResource("1_ya4ey")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = -1
-anchor_left = 0.032
-anchor_top = 0.054
-anchor_right = 0.032
-anchor_bottom = 0.055
-offset_left = -418.86
-offset_top = -381.992
-offset_right = 2203.14
-offset_bottom = 697.36
+anchor_left = -0.331594
+anchor_top = -0.535494
+anchor_right = 1.12507
+anchor_bottom = 0.331173
+offset_right = 943.92
+offset_bottom = 518.4
 scale = Vector2(0.64, 0.52)
 mouse_filter = 2
 texture = ExtResource("2_eb6dy")
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_left = -0.313368
+anchor_top = -0.285494
+anchor_right = 0.0564236
+anchor_bottom = -0.00617284
+texture = SubResource("GradientTexture2D_7mycd")
+metadata/_edit_use_anchors_ = true
 
 [node name="scene 1" type="Node" parent="."]
-
-[node name="TextureRect2" type="TextureRect" parent="scene 1"]
-anchors_preset = -1
-anchor_left = -0.135
-anchor_top = -0.093
-anchor_right = -0.135
-anchor_bottom = -0.093
-offset_left = -205.48
-offset_top = -124.736
-offset_right = 220.52
-offset_bottom = 56.264
-texture = SubResource("GradientTexture2D_7mycd")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="scene 1"]
 script = SubResource("GDScript_kek77")
@@ -103,7 +99,7 @@ tile_set = SubResource("TileSet_1bvp3")
 
 [node name="lava" type="TileMapLayer" parent="scene 1"]
 scale = Vector2(0.125, 0.125)
-tile_map_data = PackedByteArray("AADw/Wr/AAAAAAAAAAAoAXL/AAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AADw/Wr/AAAAAAAAAAAoAXL/AAAAAAAAAABgBNX/AAAAAAAAAADPBjoAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_w48qg")
 script = ExtResource("7_muem4")
 
@@ -113,41 +109,40 @@ script = ExtResource("7_muem4")
 script = ExtResource("3_trceg")
 
 [node name="Panel" type="Panel" parent="HUD"]
-offset_left = -351.0
-offset_top = -168.0
-offset_right = -265.0
-offset_bottom = -128.0
+anchors_preset = -1
+anchor_left = -0.304688
+anchor_top = -0.259259
+anchor_right = -0.230035
+anchor_bottom = -0.197531
+metadata/_edit_use_anchors_ = true
 
 [node name="HeartsFull" type="TextureRect" parent="HUD"]
 anchors_preset = -1
-anchor_left = -0.263
-anchor_top = -0.225
-anchor_right = -0.263
-anchor_bottom = -0.225
-offset_left = -47.024
-offset_top = -8.2
-offset_right = 108.976
-offset_bottom = 23.8
+anchor_left = -0.303819
+anchor_top = -0.237654
+anchor_right = -0.236111
+anchor_bottom = -0.212963
+offset_right = 78.0
+offset_bottom = 16.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_a8y0u")
 expand_mode = 1
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="HeartsEmpty" type="TextureRect" parent="HUD"]
-visible = false
 anchors_preset = -1
-anchor_left = -0.161
-anchor_top = -0.145
-anchor_right = -0.161
-anchor_bottom = -0.145
-offset_left = -164.528
-offset_top = -60.04
-offset_right = -8.52798
-offset_bottom = -28.04
+anchor_left = -0.303819
+anchor_top = -0.237654
+anchor_right = -0.236111
+anchor_bottom = -0.212963
+offset_right = 78.0
+offset_bottom = 16.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_a8y0u")
 expand_mode = 1
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Sylvie" type="CharacterBody2D" parent="."]
 position = Vector2(-324, 6)
